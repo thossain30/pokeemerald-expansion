@@ -51,6 +51,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	call_if_unset FLAG_UNUSED_0x496, LittlerootTown_EventScript_SetUpRivalBattle
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1026,5 +1027,40 @@ LittlerootTown_EventScript_NewSign::
 	return
 
 
+LittlerootTown_EventScript_SetUpRivalBattle::
+	goto_if_unset FLAG_UNUSED_0x493, LittlerootTown_EventScript_SetUpRivalBattle_3
+LittlerootTown_EventScript_SetUpRivalBattle_2:
+	clearflag FLAG_UNUSED_0x496
+	return
+
+LittlerootTown_EventScript_SetUpRivalBattle_1:
+	setflag FLAG_UNUSED_0x496
+	return
+
+LittlerootTown_EventScript_SetUpRivalBattle_3:
+	goto_if_unset FLAG_UNUSED_0x494, LittlerootTown_EventScript_SetUpRivalBattle_5
+	goto LittlerootTown_EventScript_SetUpRivalBattle_2
+
+LittlerootTown_EventScript_SetUpRivalBattle_5:
+	goto_if_unset FLAG_UNUSED_0x495, LittlerootTown_EventScript_SetUpRivalBattle_1
+	goto LittlerootTown_EventScript_SetUpRivalBattle_2
+
+
+LittlerootTown_EventScript_MayRivalBattle::
+	trainerbattle_single TRAINER_MAY_ROUTE_103_TREECKO, May_Intro, May_Outro
+	msgbox PostBattle_May, MSGBOX_AUTOCLOSE
+	waitmessage
+	end
+
+
 LittlerootTown_EventScript_NewSign_Text_0:
 	.string "Hello, World!$"
+
+May_Intro::
+	.string "Surprise! Now you gotta face me!$"
+
+May_Outro::
+	.string "I wasn't trying this time around.$"
+
+PostBattle_May::
+	.string "I'll win next time.$"
