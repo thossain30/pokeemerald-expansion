@@ -4,14 +4,14 @@ NewBirchLab_MapScripts::
 
 
 NewBirchLab_EventScript_BallDefault::
-	setvar VAR_UNUSED_0x40F7, 0
+	setvar STARTER_GEN, 0
 	return
 
 
 NewBirchLab_EventScript_Birch::
 	lockall
 	faceplayer
-	goto_if_unset FLAG_UNUSED_0x493, NewBirchLab_EventScript_Birch_4
+	goto_if_unset STARTER_BALL_ONE, NewBirchLab_EventScript_Birch_4
 NewBirchLab_EventScript_Birch_3:
 	msgbox NewBirchLab_EventScript_Birch_Text_3
 NewBirchLab_EventScript_Birch_1:
@@ -27,29 +27,29 @@ NewBirchLab_EventScript_Birch_2:
 	goto NewBirchLab_EventScript_Birch_1
 
 NewBirchLab_EventScript_Birch_4:
-	goto_if_unset FLAG_UNUSED_0x494, NewBirchLab_EventScript_Birch_6
+	goto_if_unset STARTER_BALL_TWO, NewBirchLab_EventScript_Birch_6
 	goto NewBirchLab_EventScript_Birch_3
 
 NewBirchLab_EventScript_Birch_6:
-	goto_if_unset FLAG_UNUSED_0x495, NewBirchLab_EventScript_Birch_2
+	goto_if_unset STARTER_BALL_THREE, NewBirchLab_EventScript_Birch_2
 	goto NewBirchLab_EventScript_Birch_3
 
 NewBirchLab_EventScript_Birch_9:
-	compare VAR_UNUSED_0x40F7, 2
+	compare STARTER_GEN, 2
 	goto_if_ne NewBirchLab_EventScript_Birch_13
-	setvar VAR_UNUSED_0x40F7, 0
+	setvar STARTER_GEN, 0
 NewBirchLab_EventScript_Birch_12:
 	msgbox NewBirchLab_EventScript_Birch_Text_1
 	goto NewBirchLab_EventScript_Birch_1
 
 NewBirchLab_EventScript_Birch_13:
-	addvar VAR_UNUSED_0x40F7, 1
+	addvar STARTER_GEN, 1
 	goto NewBirchLab_EventScript_Birch_12
 
 
 NewBirchLab_EventScript_PokeballOne::
 	lockall
-	goto_if_unset FLAG_UNUSED_0x493, NewBirchLab_EventScript_PokeballOne_4
+	goto_if_unset STARTER_BALL_ONE, NewBirchLab_EventScript_PokeballOne_4
 NewBirchLab_EventScript_PokeballOne_3:
 	msgbox NewBirchLab_EventScript_PokeballOne_Text_0
 NewBirchLab_EventScript_PokeballOne_1:
@@ -58,20 +58,20 @@ NewBirchLab_EventScript_PokeballOne_1:
 	end
 
 NewBirchLab_EventScript_PokeballOne_2:
-	compare VAR_UNUSED_0x40F7, 0
+	compare STARTER_GEN, 0
 	goto_if_eq NewBirchLab_EventScript_PokeballOne_9
-	compare VAR_UNUSED_0x40F7, 1
+	compare STARTER_GEN, 1
 	goto_if_eq NewBirchLab_EventScript_PokeballOne_10
-	compare VAR_UNUSED_0x40F7, 2
+	compare STARTER_GEN, 2
 	goto_if_eq NewBirchLab_EventScript_PokeballOne_11
 	goto NewBirchLab_EventScript_PokeballOne_1
 
 NewBirchLab_EventScript_PokeballOne_4:
-	goto_if_unset FLAG_UNUSED_0x494, NewBirchLab_EventScript_PokeballOne_6
+	goto_if_unset STARTER_BALL_TWO, NewBirchLab_EventScript_PokeballOne_6
 	goto NewBirchLab_EventScript_PokeballOne_3
 
 NewBirchLab_EventScript_PokeballOne_6:
-	goto_if_unset FLAG_UNUSED_0x495, NewBirchLab_EventScript_PokeballOne_2
+	goto_if_unset STARTER_BALL_THREE, NewBirchLab_EventScript_PokeballOne_2
 	goto NewBirchLab_EventScript_PokeballOne_3
 
 NewBirchLab_EventScript_PokeballOne_9:
@@ -89,7 +89,7 @@ NewBirchLab_EventScript_PokeballOne_11:
 
 NewBirchLab_EventScript_PokeballTwo::
 	lockall
-	goto_if_unset FLAG_UNUSED_0x493, NewBirchLab_EventScript_PokeballTwo_4
+	goto_if_unset STARTER_BALL_ONE, NewBirchLab_EventScript_PokeballTwo_4
 NewBirchLab_EventScript_PokeballTwo_3:
 	msgbox NewBirchLab_EventScript_PokeballOne_Text_0
 NewBirchLab_EventScript_PokeballTwo_1:
@@ -98,20 +98,20 @@ NewBirchLab_EventScript_PokeballTwo_1:
 	end
 
 NewBirchLab_EventScript_PokeballTwo_2:
-	compare VAR_UNUSED_0x40F7, 0
+	compare STARTER_GEN, 0
 	goto_if_eq NewBirchLab_EventScript_PokeballTwo_9
-	compare VAR_UNUSED_0x40F7, 1
+	compare STARTER_GEN, 1
 	goto_if_eq NewBirchLab_EventScript_PokeballTwo_10
-	compare VAR_UNUSED_0x40F7, 2
+	compare STARTER_GEN, 2
 	goto_if_eq NewBirchLab_EventScript_PokeballTwo_11
 	goto NewBirchLab_EventScript_PokeballTwo_1
 
 NewBirchLab_EventScript_PokeballTwo_4:
-	goto_if_unset FLAG_UNUSED_0x494, NewBirchLab_EventScript_PokeballTwo_6
+	goto_if_unset STARTER_BALL_TWO, NewBirchLab_EventScript_PokeballTwo_6
 	goto NewBirchLab_EventScript_PokeballTwo_3
 
 NewBirchLab_EventScript_PokeballTwo_6:
-	goto_if_unset FLAG_UNUSED_0x495, NewBirchLab_EventScript_PokeballTwo_2
+	goto_if_unset STARTER_BALL_THREE, NewBirchLab_EventScript_PokeballTwo_2
 	goto NewBirchLab_EventScript_PokeballTwo_3
 
 NewBirchLab_EventScript_PokeballTwo_9:
@@ -129,7 +129,7 @@ NewBirchLab_EventScript_PokeballTwo_11:
 
 NewBirchLab_EventScript_PokeballThree::
 	lockall
-	goto_if_unset FLAG_UNUSED_0x493, NewBirchLab_EventScript_PokeballThree_4
+	goto_if_unset STARTER_BALL_ONE, NewBirchLab_EventScript_PokeballThree_4
 NewBirchLab_EventScript_PokeballThree_3:
 	msgbox NewBirchLab_EventScript_PokeballOne_Text_0
 NewBirchLab_EventScript_PokeballThree_1:
@@ -138,20 +138,20 @@ NewBirchLab_EventScript_PokeballThree_1:
 	end
 
 NewBirchLab_EventScript_PokeballThree_2:
-	compare VAR_UNUSED_0x40F7, 0
+	compare STARTER_GEN, 0
 	goto_if_eq NewBirchLab_EventScript_PokeballThree_9
-	compare VAR_UNUSED_0x40F7, 1
+	compare STARTER_GEN, 1
 	goto_if_eq NewBirchLab_EventScript_PokeballThree_10
-	compare VAR_UNUSED_0x40F7, 2
+	compare STARTER_GEN, 2
 	goto_if_eq NewBirchLab_EventScript_PokeballThree_11
 	goto NewBirchLab_EventScript_PokeballThree_1
 
 NewBirchLab_EventScript_PokeballThree_4:
-	goto_if_unset FLAG_UNUSED_0x494, NewBirchLab_EventScript_PokeballThree_6
+	goto_if_unset STARTER_BALL_TWO, NewBirchLab_EventScript_PokeballThree_6
 	goto NewBirchLab_EventScript_PokeballThree_3
 
 NewBirchLab_EventScript_PokeballThree_6:
-	goto_if_unset FLAG_UNUSED_0x495, NewBirchLab_EventScript_PokeballThree_2
+	goto_if_unset STARTER_BALL_THREE, NewBirchLab_EventScript_PokeballThree_2
 	goto NewBirchLab_EventScript_PokeballThree_3
 
 NewBirchLab_EventScript_PokeballThree_9:
@@ -191,7 +191,7 @@ NewBirchLab_EventScript_Mudkip_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Mudkip_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag STARTER_BALL_ONE
 	call NicknamePartyMon
 	return
 
@@ -199,7 +199,7 @@ NewBirchLab_EventScript_Mudkip_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Mudkip_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag STARTER_BALL_ONE
 	call NicknameBoxMon
 	return
 
@@ -228,7 +228,7 @@ NewBirchLab_EventScript_Totodile_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Totodile_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag STARTER_BALL_ONE
 	call NicknamePartyMon
 	return
 
@@ -236,7 +236,7 @@ NewBirchLab_EventScript_Totodile_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Totodile_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag STARTER_BALL_ONE
 	call NicknameBoxMon
 	return
 
@@ -265,7 +265,7 @@ NewBirchLab_EventScript_Squirtle_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Squirtle_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag STARTER_BALL_ONE
 	call NicknamePartyMon
 	return
 
@@ -273,7 +273,7 @@ NewBirchLab_EventScript_Squirtle_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Squirtle_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag STARTER_BALL_ONE
 	call NicknameBoxMon
 	return
 
@@ -302,7 +302,7 @@ NewBirchLab_EventScript_Treecko_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Treecko_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag STARTER_BALL_TWO
 	call NicknamePartyMon
 	return
 
@@ -310,7 +310,7 @@ NewBirchLab_EventScript_Treecko_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Treecko_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag STARTER_BALL_TWO
 	call NicknameBoxMon
 	return
 
@@ -339,7 +339,7 @@ NewBirchLab_EventScript_Chikorita_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Chikorita_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag STARTER_BALL_TWO
 	call NicknamePartyMon
 	return
 
@@ -347,7 +347,7 @@ NewBirchLab_EventScript_Chikorita_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Chikorita_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag STARTER_BALL_TWO
 	call NicknameBoxMon
 	return
 
@@ -376,7 +376,7 @@ NewBirchLab_EventScript_Bulbasaur_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Bulbasaur_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag STARTER_BALL_TWO
 	call NicknamePartyMon
 	return
 
@@ -384,7 +384,7 @@ NewBirchLab_EventScript_Bulbasaur_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Bulbasaur_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag STARTER_BALL_TWO
 	call NicknameBoxMon
 	return
 
@@ -413,7 +413,7 @@ NewBirchLab_EventScript_Torchic_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Torchic_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag STARTER_BALL_THREE
 	call NicknamePartyMon
 	return
 
@@ -421,7 +421,7 @@ NewBirchLab_EventScript_Torchic_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Torchic_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag STARTER_BALL_THREE
 	call NicknameBoxMon
 	return
 
@@ -450,7 +450,7 @@ NewBirchLab_EventScript_Cyndaquil_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Cyndaquil_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag STARTER_BALL_THREE
 	call NicknamePartyMon
 	return
 
@@ -458,7 +458,7 @@ NewBirchLab_EventScript_Cyndaquil_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Cyndaquil_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag STARTER_BALL_THREE
 	call NicknameBoxMon
 	return
 
@@ -487,7 +487,7 @@ NewBirchLab_EventScript_Charmander_4:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Charmander_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag STARTER_BALL_THREE
 	call NicknamePartyMon
 	return
 
@@ -495,7 +495,7 @@ NewBirchLab_EventScript_Charmander_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewBirchLab_EventScript_Charmander_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag STARTER_BALL_THREE
 	call NicknameBoxMon
 	return
 

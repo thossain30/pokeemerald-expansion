@@ -52,7 +52,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
-	call_if_unset FLAG_UNUSED_0x496, LittlerootTown_EventScript_SetUpRivalBattle
+	call_if_unset RIVAL_STARTER_BATTLE LittlerootTown_EventScript_SetUpRivalBattle
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -1030,18 +1030,33 @@ script LittlerootTown_EventScript_NewSign {
 }
 
 script LittlerootTown_EventScript_SetUpRivalBattle {
-	if (!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))) {
-		setflag(FLAG_UNUSED_0x496)
+	if (!(flag(STARTER_BALL_ONE) || flag(STARTER_BALL_TWO) || flag(STARTER_BALL_THREE))) { // Checks that no pokeball has been picked up
+		setflag(RIVAL_STARTER_BATTLE) // setting the flag makes May NOT show up
 	} else {
-		clearflag(FLAG_UNUSED_0x496)
+		clearflag(RIVAL_STARTER_BATTLE) // clearing the flag makes May SHOW up
 	}
 }
 
 script LittlerootTown_EventScript_MayRivalBattle {
-	trainerbattle_single(TRAINER_MAY_ROUTE_103_TREECKO, May_Intro, May_Outro)
-	msgbox(PostBattle_May, MSGBOX_AUTOCLOSE)
+	trainerbattle_single(TRAINER_MAY_ROUTE_103_TREECKO, May_Intro, May_Outro, RivalBattleOver) // (MayTeam, intro message, post battle message, script to run afterwards)
 	waitmessage
 	end
+}
+
+script RivalBattleOver {
+	lockall
+	applymovement(9, MayLeave) //applymovement(objectID_being_moved, movementScript)
+	waitmovement(0)
+	removeobject(9)
+	setflag(RIVAL_STARTER_BATTLE)
+	waitmessage
+	releaseall
+}
+
+movement MayLeave { //movement script
+	face_down
+	walk_down
+	walk_left * 7 // multiplier which runs the command that many times i.e. walk_left 7 times 
 }
 
 text May_Intro {
