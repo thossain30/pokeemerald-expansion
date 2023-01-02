@@ -1075,8 +1075,71 @@ MayLeave:
 	walk_left
 	step_end
 
+LittlerootTown_EventScript_Kecleon::
+	lockall
+	setflag KECLEON_ENCOUNTER_LITTLEROOT
+	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_KECLEON, 10, ITEM_NONE
+	dowildbattle
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq LittlerootTown_EventScript_Kecleon_2
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq LittlerootTown_EventScript_Kecleon_3
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq LittlerootTown_EventScript_Kecleon_4
+	compare VAR_RESULT, B_OUTCOME_LOST
+	goto_if_eq LittlerootTown_EventScript_Kecleon_5
+LittlerootTown_EventScript_Kecleon_1:
+	waitmessage
+	releaseall
+	return
+
+LittlerootTown_EventScript_Kecleon_2:
+	call won_or_caught
+	goto LittlerootTown_EventScript_Kecleon_1
+
+LittlerootTown_EventScript_Kecleon_3:
+	call won_or_caught
+	goto LittlerootTown_EventScript_Kecleon_1
+
+LittlerootTown_EventScript_Kecleon_4:
+	call ranaway
+	goto LittlerootTown_EventScript_Kecleon_1
+
+LittlerootTown_EventScript_Kecleon_5:
+	call ranaway
+	goto LittlerootTown_EventScript_Kecleon_1
+
+
+won_or_caught::
+	fadescreen FADE_TO_BLACK
+	removeobject 10
+	fadescreen FADE_FROM_BLACK
+	return
+
+
+ranaway::
+	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
+	msgbox ranaway_Text_0
+	delay 20
+	fadescreen FADE_TO_BLACK
+	removeobject 10
+	fadescreen FADE_FROM_BLACK
+	msgbox ranaway_Text_1
+	return
+
+
 LittlerootTown_EventScript_NewSign_Text_0:
 	.string "Hello, World!$"
+
+ranaway_Text_0:
+	.string "Kec Kec Kec...$"
+
+ranaway_Text_1:
+	.string "You suck.$"
 
 May_Intro::
 	.string "Surprise! Now you gotta face me!$"

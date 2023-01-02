@@ -1217,11 +1217,11 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define STARTER_BALL_ONE                                            0x493 // Unused Flag
-#define STARTER_BALL_TWO                                            0x494 // Unused Flag
-#define STARTER_BALL_THREE                                          0x495 // Unused Flag
-#define RIVAL_STARTER_BATTLE                                        0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
+#define STARTER_BALL_ONE                                            0x493
+#define STARTER_BALL_TWO                                            0x494
+#define STARTER_BALL_THREE                                          0x495
+#define RIVAL_STARTER_BATTLE                                        0x496
+#define KECLEON_ENCOUNTER_LITTLEROOT                                0x497
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag

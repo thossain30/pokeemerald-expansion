@@ -136,6 +136,19 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "LittlerootTown_EventScript_MayRivalBattle",
       "flag": "RIVAL_STARTER_BATTLE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 36,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LittlerootTown_EventScript_Kecleon",
+      "flag": "KECLEON_ENCOUNTER_LITTLEROOT"
     }
   ],
   "warp_events": [
